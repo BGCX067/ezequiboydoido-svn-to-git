@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteBase /contemax
+
+rewritecond 	%{http_host} ^contemax.com.br [nc]
+rewriterule 	^(.*)$ http://www.contemax.com.br/$1 [r=301,nc]
+
+RewriteRule	^(.+)\.tif!(.+)!(.+)        controller.php?pg=$1&$2=$3 [L]
+
+RewriteCond 	%{REQUEST_FILENAME} !-f
+RewriteCond 	%{REQUEST_FILENAME} !-d
+RewriteRule 	(.+)\.t&f                   controller.php?pg=$1 [L]
